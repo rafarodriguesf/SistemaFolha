@@ -1,0 +1,50 @@
+﻿@page
+@model SistemaFolha.Pages.FeriasView.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Ferias</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Ferias.FeriasId" />
+            <div class="form-group">
+                <label asp-for="Ferias.FuncionarioId" class="control-label"></label>
+                <select asp-for="Ferias.FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId"></select>
+                <span asp-validation-for="Ferias.FuncionarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ferias.DataInicioFerias" class="control-label"></label>
+                <input asp-for="Ferias.DataInicioFerias" class="form-control" />
+                <span asp-validation-for="Ferias.DataInicioFerias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ferias.DataFimFerias" class="control-label"></label>
+                <input asp-for="Ferias.DataFimFerias" class="form-control" />
+                <span asp-validation-for="Ferias.DataFimFerias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ferias.ValorFerias" class="control-label"></label>
+                <input asp-for="Ferias.ValorFerias" class="form-control" />
+                <span asp-validation-for="Ferias.ValorFerias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

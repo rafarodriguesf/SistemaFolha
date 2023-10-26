@@ -1,0 +1,54 @@
+﻿@page
+@model SistemaFolha.Pages.Cargos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo[0].NomeCargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo[0].CargaHoraria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo[0].SalarioBase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo[0].INSS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cargo) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CargaHoraria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalarioBase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INSS)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CargoId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CargoId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CargoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

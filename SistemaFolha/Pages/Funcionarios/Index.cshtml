@@ -1,0 +1,90 @@
+﻿@page
+@model SistemaFolha.Pages.Funcionarios.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].DataNasc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].DataAdmissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Instituicao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Agencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].ContaCorrente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Funcionario) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo.NomeCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNasc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataAdmissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instituicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContaCorrente)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FuncionarioId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FuncionarioId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FuncionarioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

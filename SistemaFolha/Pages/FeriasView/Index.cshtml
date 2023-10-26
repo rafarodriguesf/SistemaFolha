@@ -1,0 +1,54 @@
+﻿@page
+@model SistemaFolha.Pages.FeriasView.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ferias[0].Funcionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ferias[0].DataInicioFerias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ferias[0].DataFimFerias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ferias[0].ValorFerias)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ferias) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionario.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicioFerias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFimFerias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorFerias)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FeriasId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FeriasId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FeriasId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
